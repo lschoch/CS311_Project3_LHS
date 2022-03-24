@@ -27,7 +27,10 @@ namespace CS311_Project3_LHS
                 crust = checkedButton.Text;
             else
             {
-                rtfOrderSummary.Text = "Please select a crust.";
+                rtfOrderSummary.Clear();
+                rtfOrderSummary.SelectionFont = new Font("Arial", 32);
+                rtfOrderSummary.SelectionColor = Color.Red;
+                rtfOrderSummary.SelectedText = "Please select a crust.";
                 return;
             }
 
@@ -58,8 +61,12 @@ namespace CS311_Project3_LHS
                     break;
 
                 default:
-                    break;
-            }
+                    rtfOrderSummary.Clear();
+                    rtfOrderSummary.SelectionFont = new Font("Arial", 32);
+                    rtfOrderSummary.SelectionColor = Color.Red;
+                    rtfOrderSummary.SelectedText = "Please select a size.";
+                    return;
+            }// end switch
 
             // Price the toppings by iterating through the cells of the pnlToppings
             // TableLayoutPanel to see which items are checked and charging accordingly.
@@ -71,6 +78,7 @@ namespace CS311_Project3_LHS
                     CheckBox? cb = pnlToppings.GetControlFromPosition(col, row) as CheckBox;
                     if (cb != null && cb.Checked)
                     {
+                        
                         // Update the toppings string for the rtf output box.
                         toppings += cb.Text + "\n";
                         // Charge 2.00 if the topping is in the expensive list, 1.00 if not.
@@ -81,6 +89,7 @@ namespace CS311_Project3_LHS
                     }
                 }
             }
+
             // 6% sales tax.
             tax = subTotal * 6 / 100;
             total = subTotal + tax;
@@ -95,12 +104,37 @@ namespace CS311_Project3_LHS
             else
                 article = "a";
 
-            rtfOrderSummary.Text = $"You ordered {article} {cboSize.Text} pizza with {crust} "
+            rtfOrderSummary.Clear();
+            rtfOrderSummary.SelectionFont = new Font("Segoe UI", 11);
+            rtfOrderSummary.SelectionColor = Color.Black;
+            rtfOrderSummary.SelectedText = $"You ordered {article} {cboSize.Text} pizza with {crust} "
                 + $"crust and the following toppings:\n";
             if (toppings == "")
-                toppings = "NONE";
-            rtfOrderSummary.Text += toppings;
+                toppings = "NONE\n";
+
+            // Remove the last "\n" from toppings (to prevent a bulleted blank line
+            // at the end of the toppings list in the rtf box).
+            String trimmedToppings = toppings.Substring(0, toppings.Length-1);
+
+            rtfOrderSummary.SelectionBullet = true;
+            rtfOrderSummary.SelectedText += trimmedToppings;
         }// end summarize
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            exitProgram();
+        }// end closeToolStripMenuItem
+
+        private void frmMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.X)
+                exitProgram();
+        }// end frmMain_KeyDown
+
+        private void exitProgram()
+        {
+            Environment.Exit(0);
+        }// end exitProgram
 
     }// end class
 

@@ -494,8 +494,10 @@
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(184, 44);
+            this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(265, 44);
             this.closeToolStripMenuItem.Text = "Exit";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // pricesToolStripMenuItem
             // 
@@ -521,32 +523,32 @@
             // smallToolStripMenuItem
             // 
             this.smallToolStripMenuItem.Name = "smallToolStripMenuItem";
-            this.smallToolStripMenuItem.Size = new System.Drawing.Size(264, 44);
-            this.smallToolStripMenuItem.Text = "Small";
+            this.smallToolStripMenuItem.Size = new System.Drawing.Size(341, 44);
+            this.smallToolStripMenuItem.Text = "Small  $2.00";
             // 
             // mediumToolStripMenuItem
             // 
             this.mediumToolStripMenuItem.Name = "mediumToolStripMenuItem";
-            this.mediumToolStripMenuItem.Size = new System.Drawing.Size(264, 44);
-            this.mediumToolStripMenuItem.Text = "Medium";
+            this.mediumToolStripMenuItem.Size = new System.Drawing.Size(341, 44);
+            this.mediumToolStripMenuItem.Text = "Medium $5.00";
             // 
             // largeToolStripMenuItem
             // 
             this.largeToolStripMenuItem.Name = "largeToolStripMenuItem";
-            this.largeToolStripMenuItem.Size = new System.Drawing.Size(264, 44);
-            this.largeToolStripMenuItem.Text = "Large";
+            this.largeToolStripMenuItem.Size = new System.Drawing.Size(341, 44);
+            this.largeToolStripMenuItem.Text = "Large $10.00";
             // 
             // xLargeToolStripMenuItem
             // 
             this.xLargeToolStripMenuItem.Name = "xLargeToolStripMenuItem";
-            this.xLargeToolStripMenuItem.Size = new System.Drawing.Size(264, 44);
-            this.xLargeToolStripMenuItem.Text = "X-Large";
+            this.xLargeToolStripMenuItem.Size = new System.Drawing.Size(341, 44);
+            this.xLargeToolStripMenuItem.Text = "X-Large $15.00";
             // 
             // ginormousToolStripMenuItem
             // 
             this.ginormousToolStripMenuItem.Name = "ginormousToolStripMenuItem";
-            this.ginormousToolStripMenuItem.Size = new System.Drawing.Size(264, 44);
-            this.ginormousToolStripMenuItem.Text = "Ginormous";
+            this.ginormousToolStripMenuItem.Size = new System.Drawing.Size(341, 44);
+            this.ginormousToolStripMenuItem.Text = "Ginormous $20.00";
             // 
             // toppingsToolStripMenuItem
             // 
@@ -563,32 +565,32 @@
             // pepperoniToolStripMenuItem
             // 
             this.pepperoniToolStripMenuItem.Name = "pepperoniToolStripMenuItem";
-            this.pepperoniToolStripMenuItem.Size = new System.Drawing.Size(369, 44);
-            this.pepperoniToolStripMenuItem.Text = "Pepperoni";
+            this.pepperoniToolStripMenuItem.Size = new System.Drawing.Size(433, 44);
+            this.pepperoniToolStripMenuItem.Text = "Pepperoni $2.00";
             // 
             // sausageToolStripMenuItem
             // 
             this.sausageToolStripMenuItem.Name = "sausageToolStripMenuItem";
-            this.sausageToolStripMenuItem.Size = new System.Drawing.Size(369, 44);
-            this.sausageToolStripMenuItem.Text = "Sausage";
+            this.sausageToolStripMenuItem.Size = new System.Drawing.Size(433, 44);
+            this.sausageToolStripMenuItem.Text = "Sausage $2.00";
             // 
             // canadianBaconToolStripMenuItem
             // 
             this.canadianBaconToolStripMenuItem.Name = "canadianBaconToolStripMenuItem";
-            this.canadianBaconToolStripMenuItem.Size = new System.Drawing.Size(369, 44);
-            this.canadianBaconToolStripMenuItem.Text = "Canadian Bacon";
+            this.canadianBaconToolStripMenuItem.Size = new System.Drawing.Size(433, 44);
+            this.canadianBaconToolStripMenuItem.Text = "Canadian Bacon $2.00";
             // 
             // spicyItalianSausageToolStripMenuItem
             // 
             this.spicyItalianSausageToolStripMenuItem.Name = "spicyItalianSausageToolStripMenuItem";
-            this.spicyItalianSausageToolStripMenuItem.Size = new System.Drawing.Size(369, 44);
-            this.spicyItalianSausageToolStripMenuItem.Text = "Spicy Italian Sausage";
+            this.spicyItalianSausageToolStripMenuItem.Size = new System.Drawing.Size(433, 44);
+            this.spicyItalianSausageToolStripMenuItem.Text = "Spicy Italian Sausage $2.00";
             // 
             // allOthersToolStripMenuItem
             // 
             this.allOthersToolStripMenuItem.Name = "allOthersToolStripMenuItem";
-            this.allOthersToolStripMenuItem.Size = new System.Drawing.Size(369, 44);
-            this.allOthersToolStripMenuItem.Text = "All Others";
+            this.allOthersToolStripMenuItem.Size = new System.Drawing.Size(433, 44);
+            this.allOthersToolStripMenuItem.Text = "All Others $1.00";
             // 
             // frmMain
             // 
@@ -609,9 +611,12 @@
             this.Controls.Add(this.lblMarios);
             this.Controls.Add(this.pictMarios);
             this.Controls.Add(this.menuStrip1);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(1398, 1480);
             this.Name = "frmMain";
             this.Text = "Mario\'s";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictMarios)).EndInit();
             this.pnlOrder.ResumeLayout(false);
             this.pnlOrder.PerformLayout();
