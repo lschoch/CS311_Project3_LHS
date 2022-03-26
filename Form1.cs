@@ -23,9 +23,9 @@ namespace CS311_Project3_LHS
             // Make sure a crust has been selected
             var checkedButton = grpCrustType.Controls.OfType<RadioButton>()
                                       .FirstOrDefault(r => r.Checked);
-            if (checkedButton != null)
+            if (checkedButton != null) // A crust type has been selected - update crust variable.
                 crust = checkedButton.Text;
-            else
+            else // A crust type has not been selected - halt a request selection.
             {
                 rtfOrderSummary.Clear();
                 rtfOrderSummary.SelectionFont = new Font("Arial", 32);
@@ -60,7 +60,7 @@ namespace CS311_Project3_LHS
                     subTotal += 20.00F;
                     break;
 
-                default:
+                default: // A size has not been selected - halt and request selection.
                     rtfOrderSummary.Clear();
                     rtfOrderSummary.SelectionFont = new Font("Arial", 32);
                     rtfOrderSummary.SelectionColor = Color.Red;
@@ -69,7 +69,7 @@ namespace CS311_Project3_LHS
             }// end switch
 
             // Price the toppings by iterating through the cells of the pnlToppings
-            // TableLayoutPanel to see which items are checked and charging accordingly.
+            // TableLayoutPanel to see which items are checked. Charge accordingly.
             for (int row = 0; row < pnlToppings.RowCount; row++)
             {
                 for (int col = 0; col < pnlToppings.ColumnCount; col++)
@@ -98,17 +98,21 @@ namespace CS311_Project3_LHS
             txtTax.Text = tax.ToString("C");
             txtTotal.Text = total.ToString("C");
 
+            // Select the correct article to use when referring to size.
             String article = "";
             if (cboSize.Text == "X-Large")
                 article = "an";
             else
                 article = "a";
 
+            // Begin output to rich text box (rtfOrderSummary).
             rtfOrderSummary.Clear();
-            rtfOrderSummary.SelectionFont = new Font("Segoe UI", 11);
+            rtfOrderSummary.SelectionFont = new Font("Segoe UI", 10);
             rtfOrderSummary.SelectionColor = Color.Black;
             rtfOrderSummary.SelectedText = $"You ordered {article} {cboSize.Text} pizza with {crust} "
                 + $"crust and the following toppings:\n";
+            
+            // Update toppings variable for the case where no toppings are selected.
             if (toppings == "")
                 toppings = "NONE\n";
 
@@ -116,6 +120,7 @@ namespace CS311_Project3_LHS
             // at the end of the toppings list in the rtf box).
             String trimmedToppings = toppings.Substring(0, toppings.Length-1);
 
+            // Add trimmedtoppings variable to rich text box output with bullets. 
             rtfOrderSummary.SelectionBullet = true;
             rtfOrderSummary.SelectedText += trimmedToppings;
         }// end summarize

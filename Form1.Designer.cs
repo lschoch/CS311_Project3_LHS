@@ -465,9 +465,9 @@
             // rtfOrderSummary
             // 
             this.rtfOrderSummary.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rtfOrderSummary.Location = new System.Drawing.Point(63, 1055);
+            this.rtfOrderSummary.Location = new System.Drawing.Point(63, 1067);
             this.rtfOrderSummary.Name = "rtfOrderSummary";
-            this.rtfOrderSummary.Size = new System.Drawing.Size(876, 309);
+            this.rtfOrderSummary.Size = new System.Drawing.Size(894, 297);
             this.rtfOrderSummary.TabIndex = 13;
             this.rtfOrderSummary.Text = "";
             // 
@@ -517,7 +517,7 @@
             this.xLargeToolStripMenuItem,
             this.ginormousToolStripMenuItem});
             this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(244, 44);
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.sizeToolStripMenuItem.Text = "Size";
             // 
             // smallToolStripMenuItem
@@ -559,7 +559,7 @@
             this.spicyItalianSausageToolStripMenuItem,
             this.allOthersToolStripMenuItem});
             this.toppingsToolStripMenuItem.Name = "toppingsToolStripMenuItem";
-            this.toppingsToolStripMenuItem.Size = new System.Drawing.Size(244, 44);
+            this.toppingsToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.toppingsToolStripMenuItem.Text = "Toppings";
             // 
             // pepperoniToolStripMenuItem
@@ -590,7 +590,7 @@
             // 
             this.allOthersToolStripMenuItem.Name = "allOthersToolStripMenuItem";
             this.allOthersToolStripMenuItem.Size = new System.Drawing.Size(433, 44);
-            this.allOthersToolStripMenuItem.Text = "All Others $1.00";
+            this.allOthersToolStripMenuItem.Text = "All Others $1.00 each";
             // 
             // frmMain
             // 
